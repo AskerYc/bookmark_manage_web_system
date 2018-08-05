@@ -1,0 +1,2 @@
+import MYSQLdb
+print MYSQLdb
