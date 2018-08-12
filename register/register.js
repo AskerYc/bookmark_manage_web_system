@@ -1,3 +1,5 @@
+document.write('<script type="text/javascript" src="jquery.js"></script>');
+
 function choose_question(obj) {
 	var q_name = document.getElementById("question_name");
 	var q_answer = document.getElementById("question_answer");
@@ -12,18 +14,27 @@ function choose_question(obj) {
 
 function register(){
 	var info = new Array();
-	info[0] = document.getElementById("username");
-	info[1] = document.getElementById("password");
-	info[2] = document.getElementById("email");
-	info[3] = document.getElementById("phone");
-	info[4] = document.getElementById("Fisrt_name");
-	info[5] = document.getElementById("Last_name");
-	info[6] = document.getElementById("question_name");
-	info[7] = document.getElementById("question_answer");
+	info[0] = document.getElementById("username").value;
+	info[1] = document.getElementById("password").value;
+	info[2] = document.getElementById("email").value;
+	info[3] = document.getElementById("phone").value;
+	info[4] = document.getElementById("First_name").value;
+	info[5] = document.getElementById("Last_name").value;
+	info[6] = document.getElementById("question_name").value;
+	info[7] = document.getElementById("question_answer").value;
 	for(key in info){
 		if (info[key].value==""){
 			alert("请将信息填写完整");
 			return 1;
 		}
 	}
+	$.ajax({
+		method:"POST",
+		url:'/register_submit',
+		data:{info:"1"},
+		dataType:"json",
+		success:function(data){
+			alert(data);
+		}
+	})
 }

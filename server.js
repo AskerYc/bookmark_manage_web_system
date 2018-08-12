@@ -31,6 +31,9 @@ app.get('/register.css',function(req, res){
 app.get('/register.js',function(req, res){
 	res.sendFile( __dirname + "/register/" + "register.js");
 })
+app.post('/register_submit', function(req, res){
+	console.log(req.body);
+})
 
 var server = app.listen(5200, function () {
 	console.log("somebody is come in");
