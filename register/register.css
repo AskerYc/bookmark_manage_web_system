@@ -12,7 +12,7 @@ body {
  
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 30%;
     margin-left: -200px;
     margin-top: -200px;
  
@@ -59,6 +59,14 @@ form p > * {
 }
  
 .text_field {
+    width: 278px;
+    height: 28px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 0;
+}
+
+.text_field_answer {
     width: 278px;
     height: 28px;
     border-top-right-radius: 5px;

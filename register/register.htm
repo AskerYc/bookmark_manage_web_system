@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+ 
+    <link rel="stylesheet" type="text/css" href="register.css"/>
+    <script type="text/javascript" src="register.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+</head>
+ 
+<body>
+<div id="login_frame">
+ 
+    <p id="image_logo" class="Head_textarea">注册</p>
+ 
+    <form method="post" action="login.js">
+ 
+        <p><label class="label_input">用户名</label><input type="text" id="username" class="text_field"/></p>
+        <p><label class="label_input">密码</label><input type="text" id="password" class="text_field"/></p>
+        <p><label class="label_input">邮箱</label><input type="text" id="email" class="text_field"/></p>
+        <p><label class="label_input">手机</label><input type="text" id="phone" class="text_field"/></p>
+        <p><label class="label_input">姓</label><input type="text" id="Fist_name" class="text_field"/></p>
+        <p><label class="label_input">名</label><input type="text" id="Last_name" class="text_field"/></p>
+        <p><label class="label_input">安全问题</label>
+            <select class="text_field" id="choose_question_" onchange="choose_question(this);" >
+                <option >--安全问题--</option>
+                <option >出生地</option>
+                <option>配偶姓名</option>
+                <option>第一次坐飞机出行目的地</option>
+                <option>您母亲的姓名</option>
+                <option>您父亲的姓名</option>
+            </select>
+            <input type="hidden" id="question_name">
+            <label class="label_input" id="q_a" style="visibility:hidden">答案</label>
+            <input type="text" id="question_answer" class="text_field_answer" style="visibility:hidden" />
+        </p>
+
+        <div id="login_control">
+            <!-- <input type="button" id="btn_login" value="登录" onclick="login();"/> -->
+            <input type="button" id="btn_register" value="注册" onclick="register();"/>
+            <!-- <a id="forget_pwd" href="forget_pwd.html">忘记密码？</a> -->
+        </div>
+    </form>
+</div>
+ 
+</body>
+</html>
