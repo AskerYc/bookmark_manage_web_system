@@ -22,19 +22,22 @@ function register(){
 	info[5] = document.getElementById("Last_name").value;
 	info[6] = document.getElementById("question_name").value;
 	info[7] = document.getElementById("question_answer").value;
-	for(key in info){
-		if (info[key].value==""){
-			alert("请将信息填写完整");
-			return 1;
-		}
-	}
+	// for(key in info){
+	// 	if (info[key]==""){
+	// 		alert("请将信息填写完整");
+	// 		return 1;
+	// 	}
+	// }
 	$.ajax({
-		method:"POST",
-		url:'/register_submit',
-		data:{info:"1"},
+		type:"POST",
+		url:"/register_submit",
+		data:{info:info},
 		dataType:"json",
 		success:function(data){
 			alert(data);
+			if(data == "success"){
+				window.location.href='/login';
+			}
 		}
 	})
 }

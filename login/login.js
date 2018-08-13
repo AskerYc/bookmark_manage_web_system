@@ -1,28 +1,32 @@
+document.write('<script type="text/javascript" src="jquery.js"></script>');
 
-/**
- * Created by Kay on 2016/3/8.
- */
 function login() {
- 
-    var username = document.getElementById("username");
-    var pass = document.getElementById("password");
- 
+    var global_status = ""
+    var usrname = document.getElementById("username").value;
+    var passwd = document.getElementById("password").value;
     if (username.value == "") {
  
         alert("请输入用户名");
  
-    } else if (pass.value  == "") {
+    } else if (passwd.value  == "") {
  
         alert("请输入密码");
  
-    } else if(username.value == "admin" && pass.value == "123456"){
- 
-        window.location.href="welcome.html";
- 
     } else {
- 
-        alert("请输入正确的用户名和密码！")
- 
+        $.ajax({
+            type:"POST",
+            url:"/login_submit",
+            data:{usrname:usrname,
+                passwd:passwd},
+            dataType:"json",
+            success:function(data){
+                global_status = data.trim();
+                data = data.trim();
+                if(data == "success"){
+                    $("#form1").attr("action",'/register.htm');
+                }
+            }
+        })
     }
 }
 

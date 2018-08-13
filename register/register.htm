@@ -17,20 +17,20 @@
  
     <form method="post" action="login.js">
  
-        <p><label class="label_input">用户名</label><input type="text" id="username" class="text_field"/></p>
-        <p><label class="label_input">密码</label><input type="text" id="password" class="text_field"/></p>
-        <p><label class="label_input">邮箱</label><input type="text" id="email" class="text_field"/></p>
-        <p><label class="label_input">手机</label><input type="text" id="phone" class="text_field"/></p>
-        <p><label class="label_input">姓</label><input type="text" id="First_name" class="text_field"/></p>
-        <p><label class="label_input">名</label><input type="text" id="Last_name" class="text_field"/></p>
+        <p><label class="label_input">用户名</label><input type="text" id="username" class="text_field" autoComplete="off"/></p>
+        <p><label class="label_input">密码</label><input type="text" id="password" class="text_field" autoComplete="off"/></p>
+        <p><label class="label_input">邮箱</label><input type="text" id="email" class="text_field" autoComplete="off"/></p>
+        <p><label class="label_input">手机</label><input type="text" id="phone" class="text_field" autoComplete="off"/></p>
+        <p><label class="label_input">姓</label><input type="text" id="First_name" class="text_field" autoComplete="off"/></p>
+        <p><label class="label_input">名</label><input type="text" id="Last_name" class="text_field" autoComplete="off"/></p>
         <p><label class="label_input">安全问题</label>
             <select class="text_field" id="choose_question_" onchange="choose_question(this);" >
-                <option >--安全问题--</option>
-                <option >出生地</option>
-                <option>配偶姓名</option>
-                <option>第一次坐飞机出行目的地</option>
-                <option>您母亲的姓名</option>
-                <option>您父亲的姓名</option>
+                <option >--SAFE QUESTION--</option>
+                <option >BIRTH PLACE</option>
+                <option>SPOUSE NAME</option>
+                <option>THE FIRST PLACE FLY TO</option>
+                <option>YOUR MORTHER'S NAME</option>
+                <option>YOUR FARTHER'S NAME</option>
             </select>
             <input type="hidden" id="question_name">
             <label class="label_input" id="q_a" style="visibility:hidden">答案</label>
