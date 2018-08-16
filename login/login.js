@@ -23,6 +23,7 @@ function login() {
                 global_status = data.trim();
                 data = data.trim();
                 if(data == "success"){
+                    alert("getin");
                     $("#form1").attr("action",'/register.htm');
                 }
             }
