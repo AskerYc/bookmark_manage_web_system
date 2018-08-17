@@ -1,5 +1,3 @@
-document.write('<script type="text/javascript" src="jquery.js"></script>');
-
 function choose_question(obj) {
 	var q_name = document.getElementById("question_name");
 	var q_answer = document.getElementById("question_answer");

@@ -13,7 +13,7 @@ app.get('/login.css', function (req, res) {
 app.get('/login.js', function (req, res) {
 	res.sendFile( __dirname + "/login/" + "login.js");
 })
-app.get('/jquery.js', function(req, res){
+app.get('/jquery.js', function(req, res) {
 	res.sendFile( __dirname + "/enviroment/" + "jquery.js");
 })
 app.get('/images/together_in_movie_hotel.jpg', function (req, res) {
@@ -21,9 +21,6 @@ app.get('/images/together_in_movie_hotel.jpg', function (req, res) {
 })
 app.get('/images/Leon.jpg', function (req, res) {
 	res.sendFile( __dirname + "/login/images/" + "Leon.jpg");
-})
-app.get('/register.htm', function(req, res) {
-	res.sendFile( __dirname + "/register/" + "register.htm");
 })
 app.post('/login_submit', function(req, res) {
 	var exec = require('child_process').exec;
@@ -36,6 +33,9 @@ app.post('/login_submit', function(req, res) {
 })
 
 //register
+app.get('/register', function(req, res) {
+	res.sendFile( __dirname + "/register/" + "register.htm");
+})
 app.get('/register.css',function(req, res){
 	res.sendFile( __dirname + "/register/" + "register.css");
 })
@@ -54,6 +54,20 @@ app.post('/register_submit', function(req, res){
 			res.jsonp("success");
 		}
 	});
+})
+
+//bookmark
+app.get('/bookmark', function(req, res){
+	res.sendFile( __dirname + "/bookmark/" + "bookmark.htm");
+})
+app.get('/bookmark.css',function(req, res){
+	res.sendFile( __dirname + "/bookmark/" + "bookmark.css");
+})
+app.get('/bookmark.js',function(req, res){
+	res.sendFile( __dirname + "/bookmark/" + "bookmark.js");
+})
+app.get('/menu.png',function(req, res){
+	res.sendFile( __dirname + "/bookmark/images/" + "menu.png");
 })
 
 var server = app.listen(5200, function () {

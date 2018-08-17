@@ -9,10 +9,10 @@ def op_MySQLdb(type):
 	qr_sql = "SELECT * FROM USER_INFORMATION WHERE USER_NAME = '%s'" % (sys.argv[2])
 	cursor.execute(qr_sql)
 	results = cursor.fetchall()
-	if len(results) != 0:
-		print ("user_name exists")
-		return
 	if type == 1:
+		if len(results) != 0:
+			print ("user_name exists")
+			return
 		add_sql = "INSERT INTO USER_INFORMATION(USER_NAME, PASSWD, \
 		EMAIL, PHONE, FIRST_NAME, LAST_NAME, PASSWD_QUESTION, PASSWD_ANDWER) \
 		VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')" % \
@@ -71,6 +71,7 @@ def qr_url(user_name):
 	for url in results:
 		url_list.append(url[0])
 	print url_list
+	return url_list
 
 
 def main():

@@ -1,6 +1,5 @@
-document.write('<script type="text/javascript" src="jquery.js"></script>');
-
-function login() {
+$(function (){
+    $('#btn_login').click(function (){
     var global_status = ""
     var usrname = document.getElementById("username").value;
     var passwd = document.getElementById("password").value;
@@ -24,13 +23,18 @@ function login() {
                 data = data.trim();
                 if(data == "success"){
                     alert("getin");
-                    $("#form1").attr("action",'/register.htm');
+                    window.location.href="/register";
+                }else{
+                    alert("username or passwd error");
                 }
             }
         })
     }
-}
+    });
+
+
+});
 
 function register(){
-    window.location.href='register.htm';
+    window.location.href='/register';
 }
