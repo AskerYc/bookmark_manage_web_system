@@ -16,16 +16,16 @@ def op_MySQLdb(type):
 		add_sql = "INSERT INTO USER_INFORMATION(USER_NAME, PASSWD, \
 		EMAIL, PHONE, FIRST_NAME, LAST_NAME, PASSWD_QUESTION, PASSWD_ANDWER) \
 		VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')" % \
-		(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6].decode("gbk").encode("utf-8"), sys.argv[7].decode("gbk").encode("utf-8"), sys.argv[8].decode("gbk").encode("utf-8"), sys.argv[9].decode("gbk").encode("utf-8"))
-		try:
-			cursor.execute(add_sql)
-			add_sql = "INSERT INTO URL_INFO(USER_NAME, INDEX_NAME, NUM,URL_NAME,URL) VALUES('%s', '%d', '%d','%s','%s')" % \
-			(sys.argv[2], 0, 0,'empty','empty')
-			cursor.execute(add_sql)
-			db.commit()
-		except:
-			print "add error"
-			db.rollback()
+		(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6].decode("gbk","ignore").encode("utf-8"), sys.argv[7].decode("gbk","ignore").encode("utf-8"), sys.argv[8].decode("gbk","ignore").encode("utf-8"), sys.argv[9].decode("gbk","ignore").encode("utf-8"))
+		# try:
+		cursor.execute(add_sql)
+		add_sql = "INSERT INTO URL_INFO(USER_NAME, INDEX_NAME, NUM,URL_NAME,URL) VALUES('%s', '%d', '%d','%s','%s')" % \
+		(sys.argv[2], 0, 0,'empty','empty')
+		cursor.execute(add_sql)
+		db.commit()
+		# except:
+		# 	print "add error"
+		# 	db.rollback()
 
 	elif type == 2:
 		select_sql = "SELECT PASSWD FROM USER_INFORMATION WHERE USER_NAME = '%s'" % (sys.argv[2])
