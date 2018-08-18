@@ -81,6 +81,8 @@ def dele_url(user_name,url):
 	cursor = db.cursor()
 	dl_sql = 'DELETE FROM URL_INFO WHERE USER_NAME = "%s" AND URL = "%s"'%(user_name,url[0:len(url)-1])
 	cursor.execute(dl_sql)
+	dl_sql_ = 'DELETE FROM URL_INFO WHERE USER_NAME = "%s" AND URL = "%s"'%(user_name,url)
+	cursor.execute(dl_sql_)
 	db.commit()
 
 
