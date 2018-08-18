@@ -78,7 +78,7 @@ app.get('/folder_close.jpg', function(req, res){
 app.post('/getUrlList', function(req, res){
 	var username = req.body.username;
 	var exec = require('child_process').exec;
-	exec('python ./scripts/op_mysql.py 4 ' + username, function(error, stdout, stderr,list){
+	exec('python ./scripts/op_mysql.py 4 ' + username, function(error, stdout, stderr){
 		stdout = stdout.replace(/\[/g, "").replace(/\]/g, "").replace(/u\'/g,"").replace(/\'/g,"").replace(/\s/g,"").split(',');
 		console.log(stdout);
 		for (var i = 0; i < stdout.length; i++) {
@@ -88,6 +88,36 @@ app.post('/getUrlList', function(req, res){
 		res.jsonp(data);
 	})
 })
+app.post('/add_url',function(req,res){
+	var username = req.body.username;
+	var url_name = req.body.url_name;
+	var url = req.body.url;
+	console.log(req.body);
+	var exec = require('child_process').exec;
+	exec('python ./scripts/op_mysql.py 3 ' + username + ' ' + url_name + ' ' + url,function(error,stdout,stderr){
+		console.log("stderr");
+		if(stderr>1){
+			res.jsonp("error");
+		}else{
+			res.jsonp("success add url");
+		}
+	})
+})
+app.post('/del_url',function(req,res){
+	var username = req.body.username;
+	var url = req.body.url;
+	console.log(req.body);
+	var exec = require('child_process').exec;
+	exec('python ./scripts/op_mysql.py 5 ' + username + ' ' + url,function(error,stdout,stderr){
+		console.log(stderr);
+		if(stderr>1){
+			res.jsonp("error");
+		}else{
+			res.jsonp("success del url");
+		}
+	})
+})
+
 
 var server = app.listen(5200, function () {
 	console.log("somebody is come in");
