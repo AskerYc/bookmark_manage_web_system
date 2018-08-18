@@ -3,11 +3,11 @@ $(function (){
     var global_status = ""
     var usrname = document.getElementById("username").value;
     var passwd = document.getElementById("password").value;
-    if (username.value == "") {
+    if (usrname == "") {
  
         alert("请输入用户名");
  
-    } else if (passwd.value  == "") {
+    } else if (passwd  == "") {
  
         alert("请输入密码");
  
@@ -22,8 +22,10 @@ $(function (){
                 global_status = data.trim();
                 data = data.trim();
                 if(data == "success"){
-                    alert("getin");
-                    window.location.href="/register";
+                    // alert(usrname);
+                    var target = "/bookmark?username=" + usrname;
+                    $.post(target);
+                    // window.location.href=target;
                 }else{
                     alert("username or passwd error");
                 }

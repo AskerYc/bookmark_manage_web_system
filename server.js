@@ -57,7 +57,7 @@ app.post('/register_submit', function(req, res){
 })
 
 //bookmark
-app.get('/bookmark', function(req, res){
+app.post('/bookmark', function(req, res){
 	res.sendFile( __dirname + "/bookmark/" + "bookmark.htm");
 })
 app.get('/bookmark.css',function(req, res){
@@ -68,6 +68,12 @@ app.get('/bookmark.js',function(req, res){
 })
 app.get('/menu.png',function(req, res){
 	res.sendFile( __dirname + "/bookmark/images/" + "menu.png");
+})
+app.get('/folder.jpg', function(req, res){
+	res.sendFile( __dirname + "/bookmark/images/" + "folder.jpg")
+})
+app.get('/folder_close.jpg', function(req, res){
+	res.sendFile( __dirname + "/bookmark/images/" + "folder_closes.jpg")
 })
 
 var server = app.listen(5200, function () {
