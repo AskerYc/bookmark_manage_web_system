@@ -17,7 +17,7 @@ app.get('/jquery.js', function(req, res) {
 	res.sendFile( __dirname + "/enviroment/" + "jquery.js");
 })
 app.get('/images/together_in_movie_hotel.jpg', function (req, res) {
-	res.sendFile( __dirname + "/login/images/" + "together_in_movie_hotel.jpg");
+	res.sendFile( __dirname + "/login/images/" + "cheng.jpg");
 })
 app.get('/images/Leon.jpg', function (req, res) {
 	res.sendFile( __dirname + "/login/images/" + "Leon.jpg");
