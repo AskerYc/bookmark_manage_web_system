@@ -24,17 +24,17 @@
         <p><label class="label_input">姓</label><input type="text" id="First_name" class="text_field" autoComplete="off"/></p>
         <p><label class="label_input">名</label><input type="text" id="Last_name" class="text_field" autoComplete="off"/></p>
         <p><label class="label_input">安全问题</label>
-            <select class="text_field" id="choose_question_" onchange="choose_question(this);" >
-                <option >--SAFE QUESTION--</option>
-                <option >BIRTH PLACE</option>
-                <option>SPOUSE NAME</option>
-                <option>THE FIRST PLACE FLY TO</option>
-                <option>YOUR MORTHER'S NAME</option>
-                <option>YOUR FARTHER'S NAME</option>
+            <select class="text_field" id="choose_question_" >
+                <option >--安全问题--</option>
+                <option >出生地</option>
+                <option>配偶姓名</option>
+                <option>第一次坐飞机去哪里</option>
+                <option>父亲姓名</option>
+                <option>母亲姓名</option>
             </select>
             <input type="hidden" id="question_name">
-            <label class="label_input" id="q_a" style="visibility:hidden">答案</label>
-            <input type="text" id="question_answer" class="text_field_answer" style="visibility:hidden" />
+            <label class="label_input" id="q_a">答案</label>
+            <input type="text" id="question_answer" class="text_field_answer" />
         </p>
 
         <div id="login_control">

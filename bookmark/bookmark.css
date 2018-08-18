@@ -1,7 +1,12 @@
-body {
+html,body {
 	width: 100%;
+	height: 100%;
     background-size: 100%;
     background-repeat: no-repeat;
+}
+a{
+	text-decoration: none;
+	color: #666;
 }
 .icon-search{
 
@@ -116,7 +121,8 @@ background-color: currentcolor;
 }
 .MainFrame{
 	width: 100%;
-	height: auto;
+	height: 100%;
+	background-color: #eee;
 }
 .IndexMenu{
 	width: 100%;
@@ -126,7 +132,7 @@ background-color: currentcolor;
 	font-size: 20px;
 	font-family: 楷体;
 	font-weight: bold;
-	margin-left: 20%;
+	margin-left: 10%;
 	padding: 4px;
 	color: #0066cc;
 	display:inline-block;
@@ -143,4 +149,16 @@ background-color: currentcolor;
 	padding: 4px;
 	color: #0066cc;
 	cursor: default;
+}
+
+.URLFrame{
+	background-color: white;
+	margin-top: 20px;
+	width: 95%;
+	border-radius:5px;
+}
+.SingleURL{
+	height: 40px;
+	padding-left: 20px;
+	font-size: 16px;
 }

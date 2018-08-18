@@ -73,7 +73,20 @@ app.get('/folder.jpg', function(req, res){
 	res.sendFile( __dirname + "/bookmark/images/" + "folder.jpg")
 })
 app.get('/folder_close.jpg', function(req, res){
-	res.sendFile( __dirname + "/bookmark/images/" + "folder_closes.jpg")
+	res.sendFile( __dirname + "/bookmark/images/" + "folder_close.jpg")
+})
+app.post('/getUrlList', function(req, res){
+	var username = req.body.username;
+	var exec = require('child_process').exec;
+	exec('python ./scripts/op_mysql.py 4 ' + username, function(error, stdout, stderr,list){
+		stdout = stdout.replace(/\[/g, "").replace(/\]/g, "").replace(/u\'/g,"").replace(/\'/g,"").replace(/\s/g,"").split(',');
+		console.log(stdout);
+		for (var i = 0; i < stdout.length; i++) {
+			console.log(stdout[i]);
+		}
+		var data = {URL:stdout};
+		res.jsonp(data);
+	})
 })
 
 var server = app.listen(5200, function () {

@@ -24,7 +24,13 @@ $(function (){
                 if(data == "success"){
                     // alert(usrname);
                     var target = "/bookmark?username=" + usrname;
-                    $.post(target);
+                    var temp_form = document.createElement("form");
+                    temp_form.action = target;
+                    temp_form.method = "post";
+                    temp_form.style.display = "none";
+                    document.body.appendChild(temp_form);
+                    temp_form.submit();
+                    // $.post(target);
                     // window.location.href=target;
                 }else{
                     alert("username or passwd error");

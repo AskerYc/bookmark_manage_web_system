@@ -6,7 +6,7 @@ import sys
 def op_MySQLdb(type):
 	db = MySQLdb.connect("178.128.184.164", "yucheng", "yu10800258", "yc_first_web", charset='utf8')
 	cursor = db.cursor()
-	qr_sql = "SELECT * FROM USER_INFORMATION WHERE USER_NAME = '%s'" % (sys.argv[2])
+	qr_sql = "SELECT * FROM USER_INFORMATION WHERE USER_NAME = '%s'" % (sys.argv[2].decode("gbk").encode("utf-8"))
 	cursor.execute(qr_sql)
 	results = cursor.fetchall()
 	if type == 1:
@@ -16,7 +16,7 @@ def op_MySQLdb(type):
 		add_sql = "INSERT INTO USER_INFORMATION(USER_NAME, PASSWD, \
 		EMAIL, PHONE, FIRST_NAME, LAST_NAME, PASSWD_QUESTION, PASSWD_ANDWER) \
 		VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')" % \
-		(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6], sys.argv[7], sys.argv[8], sys.argv[9])
+		(sys.argv[2].decode("gbk").encode("utf-8"), sys.argv[3].decode("gbk").encode("utf-8"), sys.argv[4].decode("gbk").encode("utf-8"), sys.argv[5].decode("gbk").encode("utf-8"), sys.argv[6].decode("gbk").encode("utf-8"), sys.argv[7].decode("gbk").encode("utf-8"), sys.argv[8].decode("gbk").encode("utf-8"), sys.argv[9].decode("gbk").encode("utf-8"))
 		try:
 			cursor.execute(add_sql)
 			add_sql = "INSERT INTO URL_INFO(USER_NAME, INDEX_NAME, NUM) VALUES('%s', '%d', '%d')" % \
@@ -65,11 +65,14 @@ def qr_url(user_name):
 	db = MySQLdb.connect("178.128.184.164", "yucheng", "yu10800258", "yc_first_web", charset='utf8')
 	cursor = db.cursor()
 	qr_sql = "SELECT URL_NAME FROM URL_INFO WHERE USER_NAME = '%s' AND INDEX_NAME != 0" % (user_name)
+	qr_sql_ = "SELECT URL FROM URL_INFO WHERE USER_NAME = '%s' AND INDEX_NAME != 0" % (user_name)
 	cursor.execute(qr_sql)
-	results = cursor.fetchall()
+	results = list(cursor.fetchall())
+	cursor.execute(qr_sql_)
+	results_ = list(cursor.fetchall())
 	url_list = []
-	for url in results:
-		url_list.append(url[0])
+	for i in range(len(results)):
+		url_list.append(results[i][0] + ":::" + results_[i][0])
 	print url_list
 	return url_list
 
